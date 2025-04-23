@@ -8,40 +8,58 @@ class ConnectButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    void openWhatsApp(phoneNumber) async {
+      final Uri url = Uri.parse('whatsapp://send?phone=$phoneNumber');
+      if (!await launchUrl(url)) throw 'Could not launch $url';
+    }
+
     return Padding(
-      padding:  const EdgeInsets.symmetric(vertical: defaultPadding),
+      padding: const EdgeInsets.symmetric(vertical: defaultPadding),
       child: InkWell(
-        onTap: () {
-          launchUrl(Uri.parse('https://wa.me/03303210550'));
-        },
-        borderRadius: BorderRadius.circular(defaultPadding +10),
+        onTap: () => openWhatsApp("+92 330 3210550"),
+
+        borderRadius: BorderRadius.circular(defaultPadding + 10),
         child: Container(
           height: 60,
           width: 150,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(defaultPadding),
-              gradient: LinearGradient(colors: [
-                Colors.pink,
-                Colors.blue.shade900,
-              ]),
-            boxShadow:const [
-              BoxShadow(color: Colors.blue,offset: Offset(0, -1),blurRadius: defaultPadding/4),
-              BoxShadow(color: Colors.red,offset: Offset(0, 1),blurRadius: defaultPadding/4),
-            ]
+            borderRadius: BorderRadius.circular(defaultPadding),
+            gradient: LinearGradient(
+              colors: [Colors.pink, Colors.blue.shade900],
+            ),
+            boxShadow: const [
+              BoxShadow(
+                color: Colors.blue,
+                offset: Offset(0, -1),
+                blurRadius: defaultPadding / 4,
+              ),
+              BoxShadow(
+                color: Colors.red,
+                offset: Offset(0, 1),
+                blurRadius: defaultPadding / 4,
+              ),
+            ],
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              const Icon(FontAwesomeIcons.whatsapp,color: Colors.greenAccent,size: 15,),
-              const SizedBox(width : defaultPadding/4),
-              Text('Whatsapp',style: Theme.of(context).textTheme.labelSmall!.copyWith(
+              const Icon(
+                FontAwesomeIcons.whatsapp,
+                color: Colors.greenAccent,
+                size: 15,
+              ),
+              const SizedBox(width: defaultPadding / 4),
+              Text(
+                'Whatsapp',
+                style: Theme.of(context).textTheme.labelSmall!.copyWith(
                   color: Colors.white,
                   letterSpacing: 1.2,
-                  fontWeight: FontWeight.bold
-              ),),
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
-          )
+          ),
         ),
       ),
     );

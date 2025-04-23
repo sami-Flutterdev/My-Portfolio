@@ -11,18 +11,20 @@ class PersonalInfo extends StatelessWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        SizedBox(height: defaultPadding/2,),
+        SizedBox(height: defaultPadding / 2),
         AreaInfoText(title: 'Contact', text: '+92 330 3210550'),
         AreaInfoText(title: 'Email', text: 'samiu09950@gmail.com'),
-        AreaInfoText(title: 'LinkedIn', text: "Sami Ullah"),//'https://www.linkedin.com/in/sami-ullah-dev147'
-        AreaInfoText(title: 'Github', text: 'getSami147'),//https://github.com/getSami147
-        SizedBox(
-          height: defaultPadding,
-        ),
-        Text('Skills',style: TextStyle(color: Colors.white),),
-        SizedBox(
-          height: defaultPadding,
-        ),
+        AreaInfoText(
+          title: 'LinkedIn',
+          text: "Sami Ullah",
+        ), //'https://www.linkedin.com/in/sami-ullah-dev147'
+        AreaInfoText(
+          title: 'Github',
+          text: 'getSami147',
+        ), //https://github.com/sami-Flutterdev
+        SizedBox(height: defaultPadding),
+        Text('Skills', style: TextStyle(color: Colors.white)),
+        SizedBox(height: defaultPadding),
       ],
     );
   }
